@@ -1,7 +1,3 @@
-# bun-proto-test
-
-This is a simple project to replicate the bun-proto bug.
-
 ## Verify it works with Node
 
 `node index.js`
