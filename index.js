@@ -1,35 +1,11 @@
 // import http from 'http';
 import https from 'https';
 import fs from 'fs';
-
 import express from 'express';
-import session, { MemoryStore } from 'express-session';
-
-// Generate Secure Random Secret
-const SESSION_SECRET = "dumplings!";
-
 //
 // Configure Express
 //
 const app = express();
-app.use(
-	session({
-		name: 'sgs',
-		store: new MemoryStore({}),
-		secret: SESSION_SECRET,
-		resave: true,
-		saveUninitialized: true,
-		cookie: {
-			secure: true,
-			sameSite: 'lax', // SameSite security
-		},
-	}),
-);
-app.use(function logging(req, res, next) {
-	// Log the request
-	console.log('HTTP: ' + req.method + ' ' + req.url);
-	next();
-});
 
 // Print out proto
 app.get('/', function (req, res) {
