@@ -9,7 +9,9 @@ const app = express();
 
 // Print out proto
 app.get('/', function (req, res) {
-	console.log('proto:', req.protocol);
+	console.log('req.protocol:', req.protocol);
+	console.log('req.connection.encrypted:', req.connection.encrypted);
+	console.log('req.socket.encrypted:', req.socket.encrypted);
 	const runtime = typeof Bun !== 'undefined' ? 'Bun' : 'Node';
 	res.status(200).end('OK : ' + req.protocol + ' : ' + runtime);
 });
